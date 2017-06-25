@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table">
+<thead class="thead-inverse">
+  <tr>
+    <th>#</th>
+    <th>Title</th>
+    <th>Language</th>
+    <th>Snippet</th>
+    <th>Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <th scope="row">{{snippet.id}}</th>
+    <td>{{snippet.title}}</td>
+    <td>{{snippet.language}}</td>
+    <td><pre>{{snippet.snippet}}</pre></td>
+    <td>{{snippet.description}}</td>
+  </tr>
+
+</tbody>
+</table>
+
+{% endblock %}

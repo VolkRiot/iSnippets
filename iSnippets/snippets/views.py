@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .forms import SnippetForm
 from .models import Snippet
 
@@ -12,6 +12,9 @@ class SnippetListView(ListView):
         context = super(SnippetListView, self).get_context_data(**kwargs)
         return context
 
+class SnippetDetailView(DetailView):
+    model = Snippet
+    template_name = 'detail.html'
 
 def new(request):
     if request.method == 'POST':
