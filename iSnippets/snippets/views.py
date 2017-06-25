@@ -1,12 +1,17 @@
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView
+from django.views.generic import ListView
 from .forms import SnippetForm
 from .models import Snippet
 
 # Create your views here.
-class SnippetHomePageView(TemplateView):
-    def get(self, request, **kwargs):
-        return render(request, 'home.html', context=None)
+class SnippetListView(ListView):
+    model = Snippet
+    template_name = 'home.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(SnippetListView, self).get_context_data(**kwargs)
+        return context
+
 
 def new(request):
     if request.method == 'POST':
@@ -17,7 +22,7 @@ def new(request):
             language= form.cleaned_data['language'],
             snippet= form.cleaned_data['snippet'],
             description= form.cleaned_data['description']).save()
-            return redirect('snippets:home')
+            return redirect('home')
     else:
         context = { 'header': 'GET', 'form': SnippetForm() }
         return render(request, 'new.html', context)

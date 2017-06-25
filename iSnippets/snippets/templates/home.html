@@ -2,5 +2,21 @@
 {% block title %} iSnippets {% endblock %}
 
 {% block content %}
-  <h5>Hello World!</h5>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h4>View Snippets</h4>
+    <p>Here are some snippets that have already been made. Feel free to add your own by clicking on 'New Snippet' in the navigation above. If any of these snippets sound interesting to you, click on its title to view more.</p>
+    {% if snippet_list %}
+      <ul class="list-group">
+      {% for snippet in snippet_list %}
+        <a href='/detail/{{snippet.id}}'><li class="list-group-item">{{ snippet.title|capfirst }} built with {{snippet.language|capfirst}}</li></a>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>No snippets yet.</p>
+    {% endif%}
+  </div>
+</div>
+
 {% endblock %}
