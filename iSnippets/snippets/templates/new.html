@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} iSnippets {% endblock %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>Add Snippet</h1>
+      <p>Add your favorite useful code snippet in the form below</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <form method="post" action="{% url 'new' %}">
+        {% csrf_token %}
+        {% for field in form %}
+          <div class="form-group">
+            {{ field.label_tag }} <br> {{ field }}
+          </div>
+        {% endfor %}
+      </form>
+    </div>
+  </div>
+{% endblock %}
