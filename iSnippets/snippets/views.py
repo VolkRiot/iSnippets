@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
+from django.views.generic.edit import DeleteView
 from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy
 from .forms import SnippetForm
 from .models import Snippet
 
@@ -15,6 +17,12 @@ class SnippetListView(ListView):
 class SnippetDetailView(DetailView):
     model = Snippet
     template_name = 'detail.html'
+
+class SnippetDeleteView(DeleteView):
+    model = Snippet
+    template_name = 'snippet_confirm_delete.html'
+    success_url = '/'
+
 
 def new(request):
     if request.method == 'POST':

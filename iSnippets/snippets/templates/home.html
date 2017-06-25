@@ -10,7 +10,7 @@
     {% if snippet_list %}
       <ul class="list-group">
       {% for snippet in snippet_list %}
-        <a href='/detail/{{snippet.id}}'><li class="list-group-item">{{ snippet.title|capfirst }} built with {{snippet.language|capfirst}}</li></a>
+        <a href='/detail/{{snippet.id}}'><li class="list-group-item">{{snippet.language|capfirst}}:   {{ snippet.title|capfirst }} </li></a>
       {% endfor %}
     </ul>
     {% else %}
