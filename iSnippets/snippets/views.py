@@ -25,7 +25,7 @@ def new(request):
             language= form.cleaned_data['language'],
             snippet= form.cleaned_data['snippet'],
             description= form.cleaned_data['description']).save()
-            return redirect('home')
+            return redirect('/')
     else:
         context = { 'header': 'GET', 'form': SnippetForm() }
         return render(request, 'new.html', context)
