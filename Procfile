@@ -1,1 +1,1 @@
-web: gunicorn iSnippets/iSnippets/wsgi.py
+web: gunicorn iSnippets.wsgi
