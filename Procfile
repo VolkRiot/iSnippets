@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath iSnippets/iSnippets.wsgi
+web: gunicorn --pythonpath iSnippets.iSnippets.wsgi
