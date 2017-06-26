@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath="$PWD/iSnippets/iSnippets" wsgi:application
+web: gunicorn --pythonpath iSnippets iSnippets.wsgi
