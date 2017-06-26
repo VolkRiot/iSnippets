@@ -10,7 +10,12 @@
     {% if snippet_list %}
       <ul class="list-group">
       {% for snippet in snippet_list %}
-        <a href='/detail/{{snippet.id}}'><li class="list-group-item">{{snippet.language|capfirst}}:   {{ snippet.title|capfirst }} </li></a>
+        <li class="list-group-item">{{snippet.language|capfirst}}: {{ snippet.title|capfirst }}
+          <div class="btn-group pull-right">
+            <a class="" href="/detail/{{snippet.id}}"><span type="submit" class="btn-sm btn-primary">View</span></a>
+            <a class="" href="/delete/{{snippet.id}}"><span type="submit" class="btn-sm btn-danger">Delete</span></a>
+          </div>
+        </li>
       {% endfor %}
     </ul>
     {% else %}
